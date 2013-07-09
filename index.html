@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Facebook</title>
+
+        <style>
+            @import "assets/style/style.css";
+        </style>
+
+        <script src="assets/scripts/jquery.js" type="text/javascript"></script>
+        <script src="assets/scripts/ajax_core.js" type="text/javascript"></script>
+        <script src="assets/scripts/layout_helper.js" type="text/javascript"></script>
+        <script src="assets/scripts/facebook_helper.js" type="text/javascript"></script>
+        <script src="assets/scripts/application_helper.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                window.fbAsyncInit = function() {
+                    FB.init({appId: '429762523743675', status: true, cookie: true, xfbml: true});
+                };
+                $('body').append('<div id="fb-root"></div>');
+                $.getScript(document.location.protocol + '//connect.facebook.net/en_US/all.js');
+
+                ApplicationHelper.init();
+            });
+        </script>
+    </head>
+
+    <body>
+        <section class="wrapper">
+            <section class="step_containers">
+                <section class="step login">
+                    <p class="title">Pentru inceput trebuie sa te loghezi cu contul tau de facebook</p>
+
+                    <button class="login_with_facebook"></button>
+
+                    <section class="loader_container">
+                        <img src="assets/images/ajax-loader.gif" width="300px"/>
+                    </section>
+                </section>
+
+                <section class="step content">
+                    <p class="success">Super, te-ai conectat prin facebook cu success</p>
+
+                    <p class="title">Acum trebuie doar sa scrii mesajul tau</p>
+
+                    <form>
+                        <textarea name="content" cols="30" rows="10"></textarea>
+                    </form>
+
+                    <button class="post_to_facebook">
+                        Post To Facebook
+                    </button>
+                    <section class="loader_container">
+                        <img src="assets/images/ajax-loader.gif"/>
+                    </section>
+                </section>
+
+                <section class="step success_facebook">
+                    <p class="success">Am postat pe facebook !!!!</p>
+
+                    <p class="title">Te rog asteapta ca raspunsul tau sa fie salvat pentru contorizare</p>
+                </section>
+
+                <section class="step success_storage">
+                    <p class="success">Informatiile au fost salvate cu success</p>
+                    <img src="assets/images/cheering-man.gif" style="display: block;margin: 0 auto;"/>
+                </section>
+            </section>
+        </section>
+    </body>
+</html>
